@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Typed.js for Dynamic Text
     const options = {
-        strings: ['Web Developer', 'UI/UX Designer', 'Freelancer'],
+        strings: ['Embedded Software Engineer', 'UCI Grad', 'Firmware Engineer'],
         typeSpeed: 100,
         backSpeed: 60,
         loop: true
