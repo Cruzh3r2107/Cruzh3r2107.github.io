@@ -61,12 +61,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Typed.js for Dynamic Text
     const options = {
         strings: ['Embedded Software Engineer', 'UCI Grad', 'Firmware Engineer'],
-        typeSpeed: 100,
-        backSpeed: 60,
+        typeSpeed: 80,
+        backSpeed: 50,
         loop: true
     };
     
-    const typed = new Typed('.typed-text', options);
+    const typed = new typed('.element', {
+        strings: options.strings,
+        typeSpeed: options.typeSpeed,
+        backSpeed: options.backSpeed,
+        loop: options.loop
+      });
     
     // Project Filtering
     const filterButtons = document.querySelectorAll('.filter-btn');
