@@ -17,27 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.remove('active');
         });
     });
-        // Theme toggle functionality
-    const themeToggle = document.querySelector('.theme-toggle'); // Assuming this is your toggle button
-    const body = document.body;
-
-    // Check for saved user preference
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    setTheme(savedTheme);
-
-    themeToggle.addEventListener('click', () => {
-    const currentTheme = body.classList.contains('dark-theme') ? 'light' : 'dark';
-    setTheme(currentTheme);
-    localStorage.setItem('theme', currentTheme);
-    });
-
-    function setTheme(theme) {
-    if (theme === 'dark') {
-        body.classList.add('dark-theme');
-    } else {
-        body.classList.remove('dark-theme');
-    }
-    }
+    
     // Sticky Navigation
     window.addEventListener('scroll', function() {
         const navbar = document.getElementById('navbar');
