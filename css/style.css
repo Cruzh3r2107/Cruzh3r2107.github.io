@@ -165,7 +165,47 @@ section {
 #navbar ul li a.active::after {
     width: 100%;
 }
+/* Theme toggle button */
+.theme-toggle {
+    margin-left: 20px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
 
+.theme-toggle:hover {
+    transform: rotate(30deg);
+}
+
+/* Dark mode class that will be toggled */
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --heading-color: #ffffff;
+    --card-bg: #1e1e1e;
+    --border-color: #333333;
+    --section-bg: #1a1a1a;
+}
+
+/* Add your dark theme colors here */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --heading-color: #222222;
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --section-bg: #f9f9f9;
+}
+
+/* Apply the variables to your existing styles */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
 .hamburger {
     display: none;
     cursor: pointer;
