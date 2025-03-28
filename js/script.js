@@ -154,25 +154,23 @@ document.addEventListener('DOMContentLoaded', function () {
         alert('Thank you for your message! I will get back to you soon.');
     });
     // Experience Section Toggle
-    const experienceTabs = document.querySelectorAll('.experience-tab');
-
-    experienceTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const details = tab.nextElementSibling;
-            const toggleIcon = tab.querySelector('.toggle-icon');
-            
-            // Toggle current details
-            details.classList.toggle('active');
-            toggleIcon.textContent = details.classList.contains('active') ? '-' : '+';
-            
-            // Close other open details
-            experienceTabs.forEach(otherTab => {
-                if (otherTab !== tab) {
-                    const otherDetails = otherTab.nextElementSibling;
-                    otherDetails.classList.remove('active');
-                    otherTab.querySelector('.toggle-icon').textContent = '+';
-                }
-            });
+    // Experience Toggle Logic
+document.querySelectorAll('.experience-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        const details = tab.nextElementSibling;
+        const icon = tab.querySelector('.toggle-icon');
+        
+        // Toggle current item
+        details.classList.toggle('active');
+        icon.textContent = details.classList.contains('active') ? '−' : '+';
+        
+        // Close other items
+        document.querySelectorAll('.experience-tab').forEach(otherTab => {
+            if (otherTab !== tab) {
+                otherTab.nextElementSibling.classList.remove('active');
+                otherTab.querySelector('.toggle-icon').textContent = '+';
+            }
         });
     });
+});
 });
