@@ -303,6 +303,59 @@ section {
     margin-right: 10px;
 }
 
+/* Work Experience Section Styles */
+#experience {
+    background-color: #f4f4f4;
+    padding: 80px 0;
+}
+
+.experience-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.experience-item {
+    background-color: white;
+    border-radius: 5px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.experience-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.experience-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.experience-header .company {
+    margin-left: 10px;
+    color: #4a90e2;
+    font-weight: 600;
+}
+
+.experience-date {
+    color: #666;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.experience-details {
+    padding-left: 20px;
+}
+
+.experience-details li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    color: #444;
+}
+
 /* Skills Section */
 .skills-content {
     display: grid;
