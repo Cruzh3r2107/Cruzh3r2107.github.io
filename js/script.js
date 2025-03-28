@@ -68,61 +68,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const typed = new Typed('.typed-text', options);
     
-    // Experience Section Functionality
-    function createExperienceItem(data) {
-        const experienceContent = document.querySelector('.experience-content');
-        
-        if (!experienceContent) return; // Exit if experience section doesn't exist
-        
-        const experienceItem = document.createElement('div');
-        experienceItem.classList.add('experience-item');
-        
-        experienceItem.innerHTML = `
-            <div class="experience-header">
-                <h3>${data.title}</h3>
-                <span class="company">@ ${data.company}</span>
-            </div>
-            <div class="experience-date">${data.date}</div>
-            <ul class="experience-details">
-                ${data.responsibilities.map(resp => `<li>${resp}</li>`).join('')}
-            </ul>
-        `;
-        
-        experienceContent.appendChild(experienceItem);
-    }
-
-    // Experience data
-    const experiences = [
-        {
-            title: 'Graduate Teaching Assistant',
-            company: 'CS Dept, UCI',
-            date: 'September 2023 - Present',
-            responsibilities: [
-                'Working Twice as Graduate Teaching Assistant under Dr Vaglis Hristdis for courses CS 224P and BANA 295 taking lectures of student concepts on Big Data Management.',
-                'My Responsibility also included designing course structure, Creating and Grading Assignments, Proctoring Exams and Solving Doubts of Students.'
-            ]
-        }
-    ];
-
-    // Populate experiences if section exists
-    if (document.querySelector('.experience-content')) {
-        experiences.forEach(createExperienceItem);
-
-        // Optional: Add hover effects
-        const experienceItems = document.querySelectorAll('.experience-item');
-        experienceItems.forEach(item => {
-            item.addEventListener('mouseover', function() {
-                this.style.transform = 'scale(1.02)';
-                this.style.boxShadow = '0 6px 12px rgba(0, 0, 0, 0.15)';
-            });
-
-            item.addEventListener('mouseout', function() {
-                this.style.transform = 'scale(1)';
-                this.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-            });
-        });
-    }
-    
     // Project Filtering
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectItems = document.querySelectorAll('.project-item');
