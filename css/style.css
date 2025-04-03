@@ -328,6 +328,12 @@ section {
     box-shadow: 0 4px 12px rgba(0,0,0,0.12);
   }
   
+  .experience-header {
+    display: flex;
+    flex-direction: column; /* Stack title and company */
+    gap: 4px;
+  }
+  
   .experience-header h3 {
     font-size: 18px;
     font-weight: 600;
@@ -338,7 +344,7 @@ section {
   .company {
     font-size: 14px;
     color: var(--secondary-color);
-    margin-left: 8px;
+    /* Remove margin-left since it's not next to the h3 */
   }
   
   .toggle-icon {
@@ -349,15 +355,16 @@ section {
   
   .experience-content {
     display: none;
-    padding: 20px;
+    padding: 15px;
     background: #f8f9fa;
     border-radius: 0 0 8px 8px;
-    margin-bottom: 20px;
-    animation: fadeIn 0.4s ease;
+    margin-top: -10px;
+    margin-bottom: 15px;
   }
   
   .experience-content.active {
     display: block;
+    animation: fadeIn 0.3s ease;
   }
   
   .experience-date {

@@ -153,46 +153,54 @@ document.addEventListener('DOMContentLoaded', function () {
         // Show success message (you can replace this with a proper UI notification)
         alert('Thank you for your message! I will get back to you soon.');
     });
-    /// Experience Section Toggle Functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const experienceTabs = document.querySelectorAll('.experience-tab');
-        
-        experienceTabs.forEach(tab => {
-            tab.addEventListener('click', function() {
-                // Get the associated content element
-                const content = this.nextElementSibling;
-                const icon = this.querySelector('.toggle-icon');
-                
-                // Toggle the active state
-                content.classList.toggle('active');
-                
-                // Update the toggle icon
-                icon.textContent = content.classList.contains('active') ? '−' : '+';
-                
-                // Close other open experience items
-                experienceTabs.forEach(otherTab => {
-                    if (otherTab !== tab) {
-                        const otherContent = otherTab.nextElementSibling;
-                        const otherIcon = otherTab.querySelector('.toggle-icon');
-                        
-                        otherContent.classList.remove('active');
+    // Experience Section Toggle Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Experience section toggle functionality
+    const experienceTabs = document.querySelectorAll('.experience-tab');
+    console.log('Found', experienceTabs.length, 'experience tabs');
+    
+    experienceTabs.forEach((tab, index) => {
+        tab.addEventListener('click', function() {
+            // Get the content div immediately following this tab
+            const content = this.nextElementSibling;
+            const icon = this.querySelector('.toggle-icon');
+            
+            // Toggle the active class
+            content.classList.toggle('active');
+            
+            // Change icon based on state
+            if (content.classList.contains('active')) {
+                icon.textContent = '−'; // Minus sign
+                // Optional: scroll to show the content
+                content.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } else {
+                icon.textContent = '+'; // Plus sign
+            }
+            
+            // Close other open sections
+            experienceTabs.forEach(otherTab => {
+                if (otherTab !== tab) {
+                    const otherContent = otherTab.nextElementSibling;
+                    const otherIcon = otherTab.querySelector('.toggle-icon');
+                    otherContent.classList.remove('active');
+                    if (otherIcon) {
                         otherIcon.textContent = '+';
                     }
-                });
-                
-                // Smooth scroll to keep clicked item in view
-                if (content.classList.contains('active')) {
-                    setTimeout(() => {
-                        content.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                    }, 300);
                 }
             });
         });
-        
-        // Open first experience by default (optional)
-        const firstTab = document.querySelector('.experience-tab');
-        if (firstTab) {
-            firstTab.click();
-        }
     });
+    
+    // Open first item by default
+    if (experienceTabs.length > 0) {
+        const firstTab = experienceTabs[0];
+        const firstContent = firstTab.nextElementSibling;
+        const firstIcon = firstTab.querySelector('.toggle-icon');
+        
+        firstContent.classList.add('active');
+        if (firstIcon) {
+            firstIcon.textContent = '−';
+        }
+    }
+});
 });
