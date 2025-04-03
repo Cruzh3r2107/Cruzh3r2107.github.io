@@ -126,29 +126,10 @@ section {
     align-items: center;
 }
 
-/* Navbar */
-#navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    padding: 15px 0;
-    transition: var(--transition);
-}
-
-#navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .logo a {
     font-size: 36px;
     font-weight: 800;
-    color: var(--dark-color);
+    color: var(--darker-color);
 }
 
 #navbar ul {
