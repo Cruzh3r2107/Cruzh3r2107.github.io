@@ -129,7 +129,7 @@ section {
 .logo a {
     font-size: 36px;
     font-weight: 800;
-    color: var(--primary-color);
+    color: var(--dark-color);
 }
 
 #navbar ul {
