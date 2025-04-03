@@ -101,7 +101,42 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
-    
+    // Function to toggle experience details
+    function toggleExperience(element) {
+        const parent = element.parentElement;
+        
+        // Check if this element is already active
+        const isActive = parent.classList.contains('active');
+        
+        // Close all open items first
+        const allItems = document.querySelectorAll('.experience-item');
+        allItems.forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        // If the clicked item wasn't active before, make it active
+        if (!isActive) {
+            parent.classList.add('active');
+        }
+    }
+
+    // Add the Experience link to navbar when the script loads
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get the navbar list
+        const navbarList = document.querySelector('#navbar ul');
+        
+        // Create new list item for Experience
+        const experienceItem = document.createElement('li');
+        const experienceLink = document.createElement('a');
+        experienceLink.href = '#experience';
+        experienceLink.className = 'nav-link';
+        experienceLink.textContent = 'Experience';
+        experienceItem.appendChild(experienceLink);
+        
+        // Insert it after About and before Skills
+        const skillsItem = document.querySelector('a[href="#skills"]').parentElement;
+        navbarList.insertBefore(experienceItem, skillsItem);
+    });
     // Skills Animation
     function animateSkills() {
         const skillsSection = document.getElementById('skills');
