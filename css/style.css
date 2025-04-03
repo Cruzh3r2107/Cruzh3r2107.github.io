@@ -303,39 +303,98 @@ section {
     margin-right: 10px;
 }
 
-/* Work Experience Section Styles */
-.experience-details {
-    display: none;
-    padding: 15px;
-    background: #f9f9f9;
+/* ===== Experience Section Fixes ===== */
+.experience-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .experience-tab {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    background: white;
     border-radius: 8px;
-    margin-top: -8px;
-    margin-bottom: 15px;
-}
-
-.experience-details.active {
-    display: block;
-    animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.experience-tab {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     cursor: pointer;
-    transition: all 0.2s ease;
-    padding: 12px 20px;
-    border-radius: 8px;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.experience-tab:hover {
-    background: #f5f5f5;
-    transform: translateX(5px);
-}
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .experience-tab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  }
+  
+  .experience-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin: 0;
+  }
+  
+  .company {
+    font-size: 14px;
+    color: var(--secondary-color);
+    margin-left: 8px;
+  }
+  
+  .toggle-icon {
+    font-size: 20px;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+  }
+  
+  .experience-content {
+    display: none;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 0 0 8px 8px;
+    margin-bottom: 20px;
+    animation: fadeIn 0.4s ease;
+  }
+  
+  .experience-content.active {
+    display: block;
+  }
+  
+  .experience-date {
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+  }
+  
+  .experience-list {
+    padding-left: 20px;
+    margin: 0;
+  }
+  
+  .experience-list li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    position: relative;
+  }
+  
+  .experience-list li::before {
+    content: "▹";
+    position: absolute;
+    left: -20px;
+    color: var(--primary-color);
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
 /* Skills Section */
 .skills-content {
     display: grid;

@@ -153,24 +153,46 @@ document.addEventListener('DOMContentLoaded', function () {
         // Show success message (you can replace this with a proper UI notification)
         alert('Thank you for your message! I will get back to you soon.');
     });
-    // Experience Section Toggle
-    // Experience Toggle Logic
-document.querySelectorAll('.experience-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-        const details = tab.nextElementSibling;
-        const icon = tab.querySelector('.toggle-icon');
+    /// Experience Section Toggle Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const experienceTabs = document.querySelectorAll('.experience-tab');
         
-        // Toggle current item
-        details.classList.toggle('active');
-        icon.textContent = details.classList.contains('active') ? '−' : '+';
-        
-        // Close other items
-        document.querySelectorAll('.experience-tab').forEach(otherTab => {
-            if (otherTab !== tab) {
-                otherTab.nextElementSibling.classList.remove('active');
-                otherTab.querySelector('.toggle-icon').textContent = '+';
-            }
+        experienceTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Get the associated content element
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('.toggle-icon');
+                
+                // Toggle the active state
+                content.classList.toggle('active');
+                
+                // Update the toggle icon
+                icon.textContent = content.classList.contains('active') ? '−' : '+';
+                
+                // Close other open experience items
+                experienceTabs.forEach(otherTab => {
+                    if (otherTab !== tab) {
+                        const otherContent = otherTab.nextElementSibling;
+                        const otherIcon = otherTab.querySelector('.toggle-icon');
+                        
+                        otherContent.classList.remove('active');
+                        otherIcon.textContent = '+';
+                    }
+                });
+                
+                // Smooth scroll to keep clicked item in view
+                if (content.classList.contains('active')) {
+                    setTimeout(() => {
+                        content.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }, 300);
+                }
+            });
         });
+        
+        // Open first experience by default (optional)
+        const firstTab = document.querySelector('.experience-tab');
+        if (firstTab) {
+            firstTab.click();
+        }
     });
-});
 });
