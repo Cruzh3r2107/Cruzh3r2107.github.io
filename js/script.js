@@ -122,10 +122,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add the Experience link to navbar when the script loads
     document.addEventListener('DOMContentLoaded', function() {
-        // Get the navbar list
+        // Add the Experience link to navbar
         const navbarList = document.querySelector('#navbar ul');
-        
-        // Create new list item for Experience
         const experienceItem = document.createElement('li');
         const experienceLink = document.createElement('a');
         experienceLink.href = '#experience';
@@ -133,9 +131,30 @@ document.addEventListener('DOMContentLoaded', function() {
         experienceLink.textContent = 'Experience';
         experienceItem.appendChild(experienceLink);
         
-        // Insert it after About and before Skills
         const skillsItem = document.querySelector('a[href="#skills"]').parentElement;
         navbarList.insertBefore(experienceItem, skillsItem);
+        
+        // Add click event listeners to all experience headers
+        const experienceHeaders = document.querySelectorAll('.experience-header');
+        experienceHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                const parent = this.closest('.experience-item');
+                
+                // Check if this element is already active
+                const isActive = parent.classList.contains('active');
+                
+                // Close all open items first
+                const allItems = document.querySelectorAll('.experience-item');
+                allItems.forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // If the clicked item wasn't active before, make it active
+                if (!isActive) {
+                    parent.classList.add('active');
+                }
+            });
+        });
     });
     // Skills Animation
     function animateSkills() {
