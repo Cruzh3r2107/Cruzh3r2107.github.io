@@ -154,53 +154,93 @@ document.addEventListener('DOMContentLoaded', function () {
         alert('Thank you for your message! I will get back to you soon.');
     });
     // Experience Section Toggle Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    // Experience section toggle functionality
-    const experienceTabs = document.querySelectorAll('.experience-tab');
-    console.log('Found', experienceTabs.length, 'experience tabs');
-    
-    experienceTabs.forEach((tab, index) => {
-        tab.addEventListener('click', function() {
-            // Get the content div immediately following this tab
-            const content = this.nextElementSibling;
-            const icon = this.querySelector('.toggle-icon');
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM fully loaded');
+        
+        // Experience section toggle functionality
+        const experienceTabs = document.querySelectorAll('.experience-tab');
+        console.log('Found', experienceTabs.length, 'experience tabs');
+        
+        if (experienceTabs.length === 0) {
+            console.error('No experience tabs found! Check your HTML structure and class names.');
+            return;
+        }
+        
+        experienceTabs.forEach((tab, index) => {
+            console.log('Setting up tab', index + 1);
             
-            // Toggle the active class
-            content.classList.toggle('active');
-            
-            // Change icon based on state
-            if (content.classList.contains('active')) {
-                icon.textContent = '−'; // Minus sign
-                // Optional: scroll to show the content
-                content.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            } else {
-                icon.textContent = '+'; // Plus sign
-            }
-            
-            // Close other open sections
-            experienceTabs.forEach(otherTab => {
-                if (otherTab !== tab) {
-                    const otherContent = otherTab.nextElementSibling;
-                    const otherIcon = otherTab.querySelector('.toggle-icon');
-                    otherContent.classList.remove('active');
-                    if (otherIcon) {
-                        otherIcon.textContent = '+';
-                    }
+            tab.addEventListener('click', function(event) {
+                console.log('Tab', index + 1, 'clicked');
+                
+                // Get the content div immediately following this tab
+                const content = this.nextElementSibling;
+                if (!content) {
+                    console.error('No content element found after tab', index + 1);
+                    return;
                 }
+                console.log('Content element found:', content.className);
+                
+                const icon = this.querySelector('.toggle-icon');
+                if (!icon) {
+                    console.error('No toggle icon found in tab', index + 1);
+                    return;
+                }
+                console.log('Icon element found:', icon.textContent);
+                
+                // Toggle the active class
+                content.classList.toggle('active');
+                console.log('Toggled active class. Is active now:', content.classList.contains('active'));
+                
+                // Change icon based on state
+                if (content.classList.contains('active')) {
+                    icon.textContent = '−'; // Minus sign
+                    console.log('Changed icon to minus');
+                    // Optional: scroll to show the content
+                    content.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                } else {
+                    icon.textContent = '+'; // Plus sign
+                    console.log('Changed icon to plus');
+                }
+                
+                // Close other open sections
+                experienceTabs.forEach((otherTab, otherIndex) => {
+                    if (otherTab !== tab) {
+                        const otherContent = otherTab.nextElementSibling;
+                        const otherIcon = otherTab.querySelector('.toggle-icon');
+                        
+                        if (otherContent && otherContent.classList.contains('active')) {
+                            console.log('Closing tab', otherIndex + 1);
+                            otherContent.classList.remove('active');
+                            if (otherIcon) {
+                                otherIcon.textContent = '+';
+                            }
+                        }
+                    }
+                });
             });
         });
-    });
-    
-    // Open first item by default
-    if (experienceTabs.length > 0) {
-        const firstTab = experienceTabs[0];
-        const firstContent = firstTab.nextElementSibling;
-        const firstIcon = firstTab.querySelector('.toggle-icon');
         
-        firstContent.classList.add('active');
-        if (firstIcon) {
-            firstIcon.textContent = '−';
+        // Open first item by default
+        if (experienceTabs.length > 0) {
+            console.log('Opening first tab by default');
+            
+            const firstTab = experienceTabs[0];
+            const firstContent = firstTab.nextElementSibling;
+            const firstIcon = firstTab.querySelector('.toggle-icon');
+            
+            if (firstContent) {
+                firstContent.classList.add('active');
+                console.log('Added active class to first content');
+            } else {
+                console.error('No content element found for first tab');
+            }
+            
+            if (firstIcon) {
+                firstIcon.textContent = '−';
+                console.log('Set first tab icon to minus');
+            } else {
+                console.error('No icon element found for first tab');
+            }
         }
-    }
-});
+    });
 });

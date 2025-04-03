@@ -303,14 +303,14 @@ section {
     margin-right: 10px;
 }
 
-/* ===== Experience Section Fixes ===== */
+/*Experience Section*/
 .experience-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 0 15px;
-  }
+}
   
-  .experience-tab {
+.experience-tab {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -321,86 +321,87 @@ section {
     cursor: pointer;
     margin-bottom: 8px;
     transition: all 0.3s ease;
-  }
+}
   
-  .experience-tab:hover {
+.experience-tab:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-  }
+}
   
-  .experience-header {
+.experience-header {
     display: flex;
-    flex-direction: column; /* Stack title and company */
+    flex-direction: column;
     gap: 4px;
-  }
-  
-  .experience-header h3 {
+}
+
+.experience-header h3 {
     font-size: 18px;
     font-weight: 600;
     color: var(--dark-color);
     margin: 0;
-  }
+}
   
-  .company {
+.company {
     font-size: 14px;
     color: var(--secondary-color);
-    /* Remove margin-left since it's not next to the h3 */
-  }
+}
   
-  .toggle-icon {
+.toggle-icon {
     font-size: 20px;
     color: var(--primary-color);
     transition: transform 0.3s ease;
-  }
+    font-weight: bold;
+}
   
-  .experience-content {
+.experience-content {
     display: none;
     padding: 15px;
     background: #f8f9fa;
     border-radius: 0 0 8px 8px;
     margin-top: -10px;
     margin-bottom: 15px;
-  }
+}
   
-  .experience-content.active {
+.experience-content.active {
     display: block;
     animation: fadeIn 0.3s ease;
-  }
+}
   
-  .experience-date {
+.experience-date {
     font-weight: 500;
     color: var(--primary-color);
     margin-bottom: 12px;
-  }
+}
   
-  .experience-list {
+.experience-list {
     padding-left: 20px;
     margin: 0;
-  }
+}
   
-  .experience-list li {
+.experience-list li {
     margin-bottom: 10px;
     line-height: 1.6;
     position: relative;
-  }
+}
   
-  .experience-list li::before {
+.experience-list li::before {
     content: "▹";
     position: absolute;
     left: -20px;
     color: var(--primary-color);
-  }
+}
   
-  @keyframes fadeIn {
+@keyframes fadeIn {
     from {
-      opacity: 0;
-      transform: translateY(-10px);
+        opacity: 0;
+        transform: translateY(-10px);
     }
     to {
-      opacity: 1;
-      transform: translateY(0);
+        opacity: 1;
+        transform: translateY(0);
     }
-  }
+}
+
   
 /* Skills Section */
 .skills-content {
