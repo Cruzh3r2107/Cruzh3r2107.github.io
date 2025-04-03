@@ -101,61 +101,27 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
-    // Function to toggle experience details
-    function toggleExperience(element) {
-        const parent = element.parentElement;
-        
-        // Check if this element is already active
-        const isActive = parent.classList.contains('active');
-        
-        // Close all open items first
-        const allItems = document.querySelectorAll('.experience-item');
-        allItems.forEach(item => {
-            item.classList.remove('active');
-        });
-        
-        // If the clicked item wasn't active before, make it active
-        if (!isActive) {
-            parent.classList.add('active');
-        }
-    }
 
-    // Add the Experience link to navbar when the script loads
-    document.addEventListener('DOMContentLoaded', function() {
-        // Add the Experience link to navbar
-        const navbarList = document.querySelector('#navbar ul');
-        const experienceItem = document.createElement('li');
-        const experienceLink = document.createElement('a');
-        experienceLink.href = '#experience';
-        experienceLink.className = 'nav-link';
-        experienceLink.textContent = 'Experience';
-        experienceItem.appendChild(experienceLink);
+    // Experience Section Toggle
+    const experienceItems = document.querySelectorAll('.experience-item');
+    
+    experienceItems.forEach(item => {
+        const header = item.querySelector('.experience-header');
+        const details = item.querySelector('.experience-details');
         
-        const skillsItem = document.querySelector('a[href="#skills"]').parentElement;
-        navbarList.insertBefore(experienceItem, skillsItem);
-        
-        // Add click event listeners to all experience headers
-        const experienceHeaders = document.querySelectorAll('.experience-header');
-        experienceHeaders.forEach(header => {
-            header.addEventListener('click', function() {
-                const parent = this.closest('.experience-item');
-                
-                // Check if this element is already active
-                const isActive = parent.classList.contains('active');
-                
-                // Close all open items first
-                const allItems = document.querySelectorAll('.experience-item');
-                allItems.forEach(item => {
-                    item.classList.remove('active');
-                });
-                
-                // If the clicked item wasn't active before, make it active
-                if (!isActive) {
-                    parent.classList.add('active');
+        header.addEventListener('click', function() {
+            // Close all other open items
+            experienceItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
                 }
             });
+            
+            // Toggle current item
+            item.classList.toggle('active');
         });
     });
+    
     // Skills Animation
     function animateSkills() {
         const skillsSection = document.getElementById('skills');
