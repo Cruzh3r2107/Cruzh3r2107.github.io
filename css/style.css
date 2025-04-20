@@ -2,7 +2,7 @@
 :root {
     --primary-color: #4a6cf7;
     --secondary-color: #6c757d;
-    --dark-color: #181616;
+    --dark-color: #f5f5f5;
     --light-color: #2d2e32;
     --text-color: #ddd;
     --background-color: #121212;
@@ -308,7 +308,7 @@ section {
 
 /* Experience Section Styles */
 #experience {
-    background-color: var(--background-color);
+    background-color: #f9f9f9;
     padding: 80px 0;
     position: relative;
 }
