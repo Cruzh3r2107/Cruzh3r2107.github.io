@@ -187,7 +187,7 @@ section {
 #home {
     padding-top: 150px;
     padding-bottom: 80px;
-    background-color: var(--light-color);
+    background-color: var(--background-color);
 }
 
 .home-content {
